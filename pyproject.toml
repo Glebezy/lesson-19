@@ -1,4 +1,25 @@
+[tool.poetry]
+name = "lesson-19"
+version = "0.1.0"
+description = "Урок 19"
+authors = ["Глеб Троц <gntrots@mts.ru>"]
+readme = "README.md"
+
 [tool.black]
 line-length = 88
 target-version = ['py11']
 skip-string-normalization = 1
+
+[tool.poetry.dependencies]
+python = "^3.8"
+selene="^2.0.0rc9"
+pytest="^8.3.2"
+selenium="^4.27.1"
+allure-pytest="^2.13.5"
+requests="^2.32.3"
+appium-python-client="^4.2.1"
+python-dotenv="^1.0.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
