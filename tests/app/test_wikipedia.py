@@ -1,5 +1,4 @@
-from utils import allure
-from utils.allure import step
+from allure import step
 from appium.webdriver.common.appiumby import AppiumBy
 from selene import browser, have, be
 
@@ -17,10 +16,10 @@ def test_search():
 
 
 def test_open_article_after_search():
-    with allure.step('Открываем меню'):
+    with step('Открываем меню'):
         browser.element((AppiumBy.ID, "org.wikipedia.alpha:id/menu_overflow_button")).click()
         browser.element((AppiumBy.ID, "org.wikipedia.alpha:id/search_src_text")).type("Tesla")
 
-    with allure.step('Заходим в настройки'):
+    with step('Заходим в настройки'):
         browser.all((AppiumBy.ID, 'org.wikipedia.alpha:id/page_list_item_title')).first.click()
         browser.all((AppiumBy.CLASS_NAME, "android.widget.TextView")).element_by(have.text('Tesla')).should(be.visible)
