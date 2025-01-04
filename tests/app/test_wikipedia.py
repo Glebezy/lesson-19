@@ -16,10 +16,11 @@ def test_search():
 
 
 def test_open_article_after_search():
-    with step('Открываем меню'):
-        browser.element((AppiumBy.ID, "org.wikipedia.alpha:id/menu_overflow_button")).click()
+
+    with step('Type search'):
+        browser.element((AppiumBy.ACCESSIBILITY_ID, "Search Wikipedia")).click()
         browser.element((AppiumBy.ID, "org.wikipedia.alpha:id/search_src_text")).type("Tesla")
 
-    with step('Заходим в настройки'):
+    with step('Open article'):
         browser.all((AppiumBy.ID, 'org.wikipedia.alpha:id/page_list_item_title')).first.click()
         browser.all((AppiumBy.CLASS_NAME, "android.widget.TextView")).element_by(have.text('Tesla')).should(be.visible)
